@@ -13,6 +13,7 @@ namespace trka
         private Random rnd = new Random();
         private PictureBox roadLine1 = new PictureBox();
         private PictureBox roadLine2 = new PictureBox();
+        private PictureBox coin = new PictureBox();
 
         public Form1()
         {
@@ -28,7 +29,7 @@ namespace trka
             // Auto (igrac)
             playerCar.Size = new Size(100, 150);
             playerCar.SizeMode = PictureBoxSizeMode.StretchImage;
-            playerCar.Image = Properties.Resources.carp;
+            playerCar.Image = Properties.Resources.carplayer;
             playerCar.Top = this.ClientSize.Height - playerCar.Height - 20;
             playerCar.Left = this.ClientSize.Width / 2 - playerCar.Width / 2;
             this.Controls.Add(playerCar);
@@ -36,7 +37,7 @@ namespace trka
             // Auto (bot)
             enemyCar.Size = new Size(100, 150);
             enemyCar.SizeMode = PictureBoxSizeMode.StretchImage;
-            enemyCar.Image = Properties.Resources.encar;
+            enemyCar.Image = Properties.Resources.carbotp;
             enemyCar.Top = -150;
             enemyCar.Left = rnd.Next(0, this.ClientSize.Width - enemyCar.Width);
             this.Controls.Add(enemyCar);
@@ -58,9 +59,19 @@ namespace trka
             gameTimer.Interval = 20; // brzina igre
             gameTimer.Tick += new EventHandler(UpdateGame);
             gameTimer.Start();
+
+            // coin
+            coin.Size = new Size(50, 50);
+            coin.SizeMode = PictureBoxSizeMode.StretchImage;
+            coin.Image = Properties.Resources.coin;
+            coin.Top = -200;
+            coin.Left = rnd.Next(0, this.ClientSize.Width - coin.Width);
+            this.Controls.Add(coin);
         }
 
         private int speed = 5;
+        int coins = 0;
+
         private void UpdateGame(object sender, EventArgs e)
         {
             // pomera linije
@@ -85,24 +96,48 @@ namespace trka
                 gameTimer.Stop();
                 MessageBox.Show("Slupo si se");
                 this.Close();
+
+
+            }
+
+            coin.Top += 15;
+            if (coin.Top > this.ClientSize.Height)
+            {
+                coin.Top = -200;
+                coin.Left = rnd.Next(0, this.ClientSize.Width - coin.Width);
+            }
+
+      
+            if (playerCar.Bounds.IntersectsWith(coin.Bounds))
+            {
+                coins += 1;
+                lblCoins.Text = "Coins: " + coins;
+                coin.Top = -200;
+                coin.Left = rnd.Next(0, this.ClientSize.Width - coin.Width);
+                // dodaj poene
             }
         }
 
         private void OnKeyDown(object sender, KeyEventArgs e)
         {
             // pomera auto
-            if (e.KeyCode == Keys.Left && playerCar.Left > 0)
+            if (e.KeyCode == Keys.A && playerCar.Left > 0)
                 playerCar.Left -= 10;
-            if (e.KeyCode == Keys.Right && playerCar.Right < this.ClientSize.Width)
+            if (e.KeyCode == Keys.D && playerCar.Right < this.ClientSize.Width)
                 playerCar.Left += 10;
 
-            if (e.KeyCode == Keys.Up && playerCar.Top > 0)
+            if (e.KeyCode == Keys.W && playerCar.Top > 0)
                 playerCar.Top -= 10;
-            if (e.KeyCode == Keys.Down && playerCar.Bottom < this.ClientSize.Height)
+            if (e.KeyCode == Keys.S && playerCar.Bottom < this.ClientSize.Height)
                 playerCar.Top += 10;
 
-            if (e.KeyCode == Keys.Up) speed = 10;
-            if (e.KeyCode == Keys.Down) speed = 2;
+            if (e.KeyCode == Keys.W) speed = 10;
+            if (e.KeyCode == Keys.S) speed = 2;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
