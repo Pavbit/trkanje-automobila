@@ -63,9 +63,9 @@ namespace trka.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap carbotp {
+        internal static System.Drawing.Bitmap carbotp1 {
             get {
-                object obj = ResourceManager.GetObject("carbotp", resourceCulture);
+                object obj = ResourceManager.GetObject("carbotp1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,29 @@ namespace trka.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap carplayer {
+        internal static System.Drawing.Bitmap carplayer1 {
             get {
-                object obj = ResourceManager.GetObject("carplayer", resourceCulture);
+                object obj = ResourceManager.GetObject("carplayer1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap carplayer1_left {
+            get {
+                object obj = ResourceManager.GetObject("carplayer1_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap carplayer1_right {
+            get {
+                object obj = ResourceManager.GetObject("carplayer1_right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

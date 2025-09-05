@@ -81,22 +81,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\carp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\encar.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\coin.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\carpl.png" />
+    <None Include="Resources\carplayer1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\carplayer.png" />
+    <None Include="Resources\carbotp1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\carbotp.png" />
+    <None Include="Resources\carplayer1-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carplayer1-right.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

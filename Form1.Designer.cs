@@ -21,6 +21,7 @@
         private void InitializeComponent()
         {
             this.lblCoins = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblCoins
@@ -33,9 +34,20 @@
             this.lblCoins.Text = "Coins: 0";
             this.lblCoins.Click += new System.EventHandler(this.label1_Click);
             // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Location = new System.Drawing.Point(904, 13);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(51, 16);
+            this.lblTime.TabIndex = 1;
+            this.lblTime.Text = "Time: 0";
+            this.lblTime.Click += new System.EventHandler(this.lblTime_Click);
+            // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(384, 561);
+            this.ClientSize = new System.Drawing.Size(982, 453);
+            this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblCoins);
             this.Name = "Form1";
             this.Text = "Trka Automobila";
@@ -45,6 +57,7 @@
         }
 
         private System.Windows.Forms.Label lblCoins;
+        private System.Windows.Forms.Label lblTime;
     }
 }
         #endregion
